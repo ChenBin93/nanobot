@@ -313,6 +313,25 @@ PROVIDERS: tuple[ProviderSpec, ...] = (
         ),
     ),
 
+    # Volcengine: Volcano Engine models, needs "volcengine/" prefix.
+    # coding plan API default
+    ProviderSpec(
+        name="volcengine",
+        keywords=("volcengine", "ark", "doubao"),
+        env_key="VOLCENGINE_API_KEY",
+        display_name="Volcengine Ark",
+        litellm_prefix="volcengine",
+        skip_prefixes=("volcengine/", "openai/"),
+        env_extras=(),
+        is_gateway=False,
+        is_local=False,
+        detect_by_key_prefix="",
+        detect_by_base_keyword="",
+        default_api_base="https://ark.cn-beijing.volces.com/api/coding/v3",
+        strip_model_prefix=False,
+        model_overrides=(),
+    ),
+
     # MiniMax: needs "minimax/" prefix for LiteLLM routing.
     # Uses OpenAI-compatible API at api.minimax.io/v1.
     ProviderSpec(
